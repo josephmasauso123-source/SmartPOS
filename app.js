@@ -232,7 +232,38 @@ showMessage(
 console.log("SmartPOS login successful:", profile);
 
 // Open the dashboard
-const loginSection = document.querySelector(".container");
+
+// Open the correct dashboard
+const welcomeSection = document.querySelector(".welcome");
+const loginCard = document.querySelector(".login-card");
+const dashboard = document.getElementById("dashboard");
+
+const dashboardWelcome =
+    document.getElementById("dashboardWelcome");
+
+const dashboardTitle =
+    document.getElementById("dashboardTitle");
+
+if (dashboard) {
+    if (welcomeSection) {
+        welcomeSection.style.display = "none";
+    }
+
+    if (loginCard) {
+        loginCard.style.display = "none";
+    }
+
+    dashboard.style.display = "block";
+
+    dashboardWelcome.textContent =
+        "Welcome, " + profile.full_name;
+
+    dashboardTitle.textContent =
+        profile.role === "admin"
+        ? "SmartPOS Admin Dashboard"
+        : "SmartPOS Worker Dashboard";
+}
+
 const dashboard = document.getElementById("dashboard");
 const dashboardWelcome = document.getElementById("dashboardWelcome");
 const dashboardTitle = document.getElementById("dashboardTitle");
