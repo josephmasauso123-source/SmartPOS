@@ -357,4 +357,92 @@ if (forgotPasswordLink) {
 
 connectSupabase();
 
+
+/* =================================
+   SMARTPOS DASHBOARD NAVIGATION
+================================= */
+
+const dashboardSections = {
+    overview: {
+        title: "Business Overview",
+        description: "Monitor your store performance."
+    },
+    products: {
+        title: "Products Management",
+        description: "Add, edit and manage store products."
+    },
+    inventory: {
+        title: "Inventory Management",
+        description: "Monitor stock levels and deliveries."
+    },
+    employees: {
+        title: "Employee Management",
+        description: "Manage workers and their accounts."
+    },
+    transactions: {
+        title: "Transactions",
+        description: "View and manage store sales."
+    },
+    payments: {
+        title: "Payments",
+        description: "Monitor payment records."
+    },
+    reports: {
+        title: "Sales Reports",
+        description: "Review your business performance."
+    },
+    refunds: {
+        title: "Refund Management",
+        description: "Review and approve refund requests."
+    },
+    settings: {
+        title: "System Settings",
+        description: "Configure your SmartPOS system."
+    }
+};
+
+const dashboard = document.getElementById("dashboard");
+
+function openDashboardView(view) {
+    if (!dashboardSections[view]) return;
+
+    const overview = document.getElementById("overviewView");
+    const management = document.getElementById("managementView");
+
+    const title = document.getElementById("managementTitle");
+    const description = document.getElementById("managementDescription");
+    const message = document.getElementById("managementMessage");
+
+    if (view === "overview") {
+        overview.style.display = "block";
+        management.style.display = "none";
+    } else {
+        overview.style.display = "none";
+        management.style.display = "block";
+
+        title.textContent = dashboardSections[view].title;
+        description.textContent = dashboardSections[view].description;
+        message.textContent =
+            dashboardSections[view].title +
+            " workspace is ready for development.";
+    }
+
+    dashboard.querySelectorAll("[data-view]").forEach(button => {
+        button.classList.toggle(
+            "active",
+            button.dataset.view === view
+        );
+    });
+}
+
+if (dashboard) {
+    dashboard.addEventListener("click", function(event) {
+        const button = event.target.closest("[data-view]");
+
+        if (button && dashboard.contains(button)) {
+            openDashboardView(button.dataset.view);
+        }
+    });
+}
+
 console.log("SmartPOS JavaScript loaded successfully.");

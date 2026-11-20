@@ -113,35 +113,212 @@
         </section>
 
       
-<!-- SMARTPOS DASHBOARD -->
-<section id="dashboard" style="display:none;">
 
-    <h1 id="dashboardTitle">SmartPOS Dashboard</h1>
+<!-- SMARTPOS ADMIN DASHBOARD -->
+<section id="dashboard" class="admin-dashboard" style="display:none;">
 
-    <p id="dashboardWelcome">Welcome!</p>
+    <!-- SIDEBAR -->
+    <aside class="dashboard-sidebar">
 
-    <div class="dashboard-menu">
+        <div class="sidebar-brand">
+            <h2>Smart<span>POS</span></h2>
+            <small>RETAIL MANAGEMENT</small>
+        </div>
 
-        <button type="button">📦 Products & Stock</button>
+        <div class="sidebar-label">MAIN MENU</div>
 
-        <button type="button">🛒 New Sale</button>
+        <nav class="dashboard-nav">
 
-        <button type="button">📊 Sales Reports</button>
+            <button class="nav-item active" data-view="overview">
+                <span>▦</span> Overview
+            </button>
 
-        <button type="button">👥 Employees</button>
+            <button class="nav-item" data-view="products">
+                <span>▣</span> Products
+            </button>
 
-        <button type="button">💰 Payments</button>
+            <button class="nav-item" data-view="inventory">
+                <span>▤</span> Inventory
+            </button>
 
-        <button type="button">⚙️ Settings</button>
+            <button class="nav-item" data-view="employees">
+                <span>♙</span> Employees
+            </button>
+
+            <button class="nav-item" data-view="transactions">
+                <span>⇄</span> Transactions
+            </button>
+
+            <button class="nav-item" data-view="payments">
+                <span>◈</span> Payments
+            </button>
+
+            <button class="nav-item" data-view="reports">
+                <span>▥</span> Reports
+            </button>
+
+            <button class="nav-item" data-view="refunds">
+                <span>↩</span> Refunds
+            </button>
+
+            <div class="sidebar-label">SYSTEM</div>
+
+            <button class="nav-item" data-view="settings">
+                <span>⚙</span> Settings
+            </button>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+            <p>SmartPOS v1.0</p>
+            <small>Professional Retail System</small>
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <div class="dashboard-main">
+
+        <header class="dashboard-header">
+
+            <div>
+                <p class="dashboard-eyebrow">ADMINISTRATION</p>
+                <h1 id="dashboardTitle">Admin Dashboard</h1>
+                <p id="dashboardWelcome">Welcome!</p>
+            </div>
+
+            <div class="admin-profile">
+                <div class="admin-avatar">A</div>
+                <div>
+                    <strong>Administrator</strong>
+                    <small>System Admin</small>
+                </div>
+            </div>
+
+        </header>
+
+        <!-- OVERVIEW -->
+        <div class="dashboard-content" id="overviewView">
+
+            <div class="page-heading">
+                <div>
+                    <h2>Business Overview</h2>
+                    <p>Monitor your store's performance.</p>
+                </div>
+
+                <button class="primary-action" data-view="transactions">
+                    View Transactions
+                </button>
+            </div>
+
+            <!-- STATISTICS -->
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon">💰</div>
+                    <p>Total Revenue Today</p>
+                    <h2 id="todayRevenue">K0.00</h2>
+                    <small>Today's sales revenue</small>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">🛒</div>
+                    <p>Today's Sales</p>
+                    <h2 id="todaySales">0</h2>
+                    <small>Completed transactions</small>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">📦</div>
+                    <p>Total Products</p>
+                    <h2 id="totalProducts">0</h2>
+                    <small>Registered products</small>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <p>Employees</p>
+                    <h2 id="totalEmployees">0</h2>
+                    <small>Registered workers</small>
+                </div>
+
+            </div>
+
+            <!-- DASHBOARD PANELS -->
+            <div class="dashboard-panels">
+
+                <div class="dashboard-panel">
+                    <div class="panel-heading">
+                        <h3>Recent Transactions</h3>
+                        <button data-view="transactions">View All</button>
+                    </div>
+
+                    <div class="empty-state">
+                        <span>🧾</span>
+                        <p>No transactions recorded yet.</p>
+                    </div>
+                </div>
+
+                <div class="dashboard-panel">
+                    <div class="panel-heading">
+                        <h3>Inventory Alerts</h3>
+                        <button data-view="inventory">View Stock</button>
+                    </div>
+
+                    <div class="empty-state">
+                        <span>📦</span>
+                        <p>No inventory information available yet.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="dashboard-panel quick-actions">
+                <h3>Quick Actions</h3>
+
+                <div class="quick-action-grid">
+                    <button data-view="products">＋ Add Product</button>
+                    <button data-view="employees">＋ Add Employee</button>
+                    <button data-view="inventory">📦 Manage Stock</button>
+                    <button data-view="reports">📊 View Reports</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- OTHER DASHBOARD PAGES -->
+        <div id="managementView" class="dashboard-content" style="display:none;">
+
+            <div class="page-heading">
+                <div>
+                    <h2 id="managementTitle">Management</h2>
+                    <p id="managementDescription">Manage your store.</p>
+                </div>
+            </div>
+
+            <div class="dashboard-panel">
+                <div class="empty-state">
+                    <span>⚙️</span>
+                    <p id="managementMessage">
+                        This section is being prepared.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="dashboard-footer">
+            SmartPOS © 2026 | All Rights Reserved
+        </footer>
 
     </div>
 
-    <button type="button" id="logoutButton">
+    <button type="button" id="logoutButton" class="logout-button">
         Sign Out
     </button>
 
 </section>
-<!-- END SMARTPOS DASHBOARD -->
+<!-- END SMARTPOS ADMIN DASHBOARD -->
 
 <footer>
             <p>SmartPOS © 2026</p>
