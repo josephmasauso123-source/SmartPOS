@@ -223,12 +223,32 @@ if (!loginForm) {
                 );
             }
 
-            showMessage(
-                "WELCOME, " + profile.full_name +
-                "! Login successful."
-            );
+            
+showMessage(
+    "WELCOME, " + profile.full_name +
+    "! Login successful."
+);
 
-            console.log("SmartPOS login successful:", profile);
+console.log("SmartPOS login successful:", profile);
+
+// Open the dashboard
+const loginSection = document.querySelector(".container");
+const dashboard = document.getElementById("dashboard");
+const dashboardWelcome = document.getElementById("dashboardWelcome");
+const dashboardTitle = document.getElementById("dashboardTitle");
+
+if (loginSection && dashboard) {
+    loginSection.style.display = "none";
+    dashboard.style.display = "block";
+
+    dashboardWelcome.textContent =
+        "Welcome, " + profile.full_name;
+
+    dashboardTitle.textContent =
+        profile.role === "admin"
+        ? "SmartPOS Admin Dashboard"
+        : "SmartPOS Worker Dashboard";
+}
 
         } catch (error) {
 
@@ -281,7 +301,9 @@ if (forgotPasswordLink) {
         try {
 
             const { error } =
-                await supabaseClient.auth.resetPasswordForEmail(email);
+                await supabaseClient.auth.resetPasswordForEmail(email, {
+    redirectTo: "https://josephmasauso123-source.github.io/SmartPOS/reset-password.html"
+});
 
             if (error) {
                 throw error;
