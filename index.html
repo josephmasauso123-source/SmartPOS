@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101827">
+
+    <title>SmartPOS | Retail Management System</title>
+
+    <!-- Connect CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-icon">S</div>
+            <div>
+                <h2>SmartPOS</h2>
+                <small>Retail Management System</small>
+            </div>
+        </div>
+
+        <span class="system-status">
+            <span class="status-dot"></span>
+            System Ready
+        </span>
+    </header>
+
+    <main class="container">
+
+        <section class="welcome">
+            <p class="eyebrow">WELCOME TO SMARTPOS</p>
+
+            <h1>Manage your store smarter.</h1>
+
+            <p>
+                Sales, payments, inventory and employees
+                in one central management system.
+            </p>
+        </section>
+
+        <section class="login-card">
+
+            <div class="login-heading">
+                <h2>System Login</h2>
+                <p>Choose your account type to continue.</p>
+            </div>
+
+            <div class="account-options">
+
+                <button type="button"
+                    class="account-btn "
+                    onclick="selectRole('worker', this)">
+
+                    <span>👤</span>
+                    <strong>Worker Login</strong>
+
+                </button>
+
+                <button type="button"
+                    class="account-btn active"
+                    onclick="selectRole('admin', this)">
+
+                    <span>🛡️</span>
+                    <strong>Admin Login</strong>
+
+                </button>
+
+            </div>
+
+            <form id="loginForm">
+
+                <label for="email">Email Address</label>
+
+<input
+    type="email"
+    id="email"
+    placeholder="Enter your email address"
+    autocomplete="username"
+    required
+>
+
+                <label for="password">Password</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                    required
+                  
+                >
+  <p style="text-align:right;">
+    <a href="#" id="forgotPasswordLink">
+        Forgot Password?
+    </a>
+</p>
+                <button type="submit" class="login-submit">
+                    Sign In →
+                </button>
+
+                <p id="loginMessage" class="message"></p>
+
+            </form>
+
+            <div class="security-note">
+                🔒 Secure employee and administrator access
+            </div>
+
+        </section>
+
+        <footer>
+            <p>SmartPOS © 2026</p>
+            <small>Professional Retail Management</small>
+        </footer>
+
+    </main>
+
+    <!-- Load Supabase first -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Load SmartPOS JavaScript second -->
+    <script src="app.js"></script>
+
+</body>
+</html>
+
